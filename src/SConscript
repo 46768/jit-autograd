@@ -1,8 +1,0 @@
-Import('env')
-
-src_files = Glob('*.c')
-
-for src in src_files:
-	src_name = src.get_path()[:-2]
-
-	env.Program(src_name, src, LIBS=['math_ir'])

@@ -3,10 +3,12 @@
 
 #include <stdlib.h>
 
-static inline void* allocate(size_t ptr_size) {
-	void* ptr = malloc(ptr_size);
+#include "logger.h"
+
+static inline void* allocate(size_t size) {
+	void* ptr = malloc(size);
 	if (ptr == NULL) {
-		abort();
+		fatal("Failed to allocate a pointer sized %zu bytes", size);
 	}
 	return ptr;
 }
@@ -14,18 +16,18 @@ static inline void* allocate(size_t ptr_size) {
 static inline void* callocate(size_t size, size_t t_size) {
 	void* ptr = calloc(size, t_size);
 	if (ptr == NULL) {
-		abort();
+		fatal("Failed to allocate a pointer sized %zu bytes", size);
 	}
 	return ptr;
 }
 
 static inline void* reallocate(void* ptr, size_t size) {
 	if (ptr == NULL) {
-		abort();
+		fatal("Provided pointer is NULL");
 	}
 	void* ptr_new = reallocate(ptr, size);
 	if (ptr_new == NULL) {
-		abort();
+		fatal("Failed to reallocate a pointer sized %zu bytes", size);
 	}
 	return ptr_new;
 }

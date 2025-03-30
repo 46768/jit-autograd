@@ -49,6 +49,7 @@ MathIROPNode* irop_generic_2args(void* a, void* b) {
 // Arithmetic nodes
 
 MathIROPNode* irop_add(void* a, void* b) {
+	reallocate(NULL, 0);
 	MathIROPNode* node = irop_generic_2args(a, b);
 	node->type = Add;
 
