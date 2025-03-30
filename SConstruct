@@ -6,7 +6,7 @@ env = Environment(
         BUILD_PATH=build_path,
         LIB_BUILD_PATH=lib_build_path,
         CPPPATH=[],
-        LIBPATH=lib_build_path)
+        LIBPATH='lib')
 env.Tool('compilation_db')
 
 Export('env')
