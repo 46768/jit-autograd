@@ -25,7 +25,7 @@ static inline void* reallocate(void* ptr, size_t size) {
 	if (ptr == NULL) {
 		fatal("Provided pointer is NULL");
 	}
-	void* ptr_new = reallocate(ptr, size);
+	void* ptr_new = realloc(ptr, size);
 	if (ptr_new == NULL) {
 		fatal("Failed to reallocate a pointer sized %zu bytes", size);
 	}

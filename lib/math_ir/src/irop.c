@@ -46,6 +46,24 @@ MathIROPNode* irop_generic_2args(void* a, void* b) {
 	return node;
 }
 
+MathIROPNode* irop_constant_int(long num) {
+	MathIROPNode* node = irop_allocate_node(1);
+	node->type = Constant;
+	node->args->argv[0] = (void*)num;
+	node->args->argt[0] = Int;
+
+	return node;
+}
+
+MathIROPNode* irop_constant_float(float num) {
+	MathIROPNode* node = irop_allocate_node(1);
+	node->type = Constant;
+	node->args->argv[0] = (void*)(long)num;
+	node->args->argt[0] = Float;
+
+	return node;
+}
+
 // Arithmetic nodes
 
 MathIROPNode* irop_add(void* a, void* b) {

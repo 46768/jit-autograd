@@ -38,7 +38,7 @@ void irop_free_node(MathIROPNode*);
 
 // Node constructors
 
-MathIROPNode* irop_constant_int(int);
+MathIROPNode* irop_constant_long(int);
 MathIROPNode* irop_constant_float(float);
 
 MathIROPNode* irop_add(void*, void*);
